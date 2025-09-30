@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "973A3CDB-C0A7-413C-9D1B-C7C609C198BF"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9E84D65C-CD85-4883-B372-47D376227F6C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Eatzy/Modules/Onboarding/Services/View Model/SignupVM.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
+            landmarkName = "SignupVM"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "9E84D65C-CD85-4883-B372-47D376227F6C - ecb57d8f863cc137"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 (Swift.Optional&lt;Eatzy.SignupResM&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Eatzy.SignupVM.verifyOTP(isSignup: Swift.Bool) -&gt; ()"
+                  moduleName = "Eatzy.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shivamdahale/Projects/My%20projects/Eatzy/Eatzy/Modules/Onboarding/Services/View%20Model/SignupVM.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "104"
+                  endingLineNumber = "104">
+               </Location>
+               <Location
+                  uuid = "9E84D65C-CD85-4883-B372-47D376227F6C - ecb57d8f863cc137"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 (Swift.Optional&lt;Eatzy.SignupResM&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Eatzy.SignupVM.verifyOTP(isSignup: Swift.Bool) -&gt; ()"
+                  moduleName = "Eatzy.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shivamdahale/Projects/My%20projects/Eatzy/Eatzy/Modules/Onboarding/Services/View%20Model/SignupVM.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "104"
+                  endingLineNumber = "104">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
