@@ -24,11 +24,4 @@ struct SignupReqM: Codable {
         self.mobileNumber = model.mobileNumber
         self.email = model.email
     }
-    
-    init(mobileNumber: String?, email: String?, otp: String) {
-        self.mobileNumber = mobileNumber
-        self.email = email
-        self.name = nil
-        self.otp = otp
-    }
 }

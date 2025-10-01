@@ -14,8 +14,11 @@ struct OtpView: View {
     var body: some View {
         VStack(alignment: .leading,spacing: 10){
             
-            Text("Enter OTP")
+            Text("OTP verification")
                 .titleTextStyle()
+            
+            Text("We have sent an OTP to \(UtilityFunctions.maskNumber(vm.signupModel.mobileNumber))")
+                .subtitleTextStyle()
             
             TextField("Enter OTP", text: $vm.otpCode)
                 .roundedTextBackground(cornerRadius: 12)

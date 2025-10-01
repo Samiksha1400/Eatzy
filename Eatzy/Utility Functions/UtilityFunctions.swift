@@ -40,4 +40,11 @@ class UtilityFunctions {
         let predicate = NSPredicate(format: "SELF MATCHES %@", passwordRegex)
         return predicate.evaluate(with: password)
     }
+    
+    class func maskNumber(_ number: String) -> String {
+        guard number.count > 2 else { return number }
+        let lastTwo = number.suffix(2)
+        return String(repeating: "*", count: number.count - 2) + lastTwo
+    }
+
 }

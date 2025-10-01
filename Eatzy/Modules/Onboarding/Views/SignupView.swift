@@ -24,6 +24,7 @@ struct SignupView: View {
                 
                 TextField("Email", text: $vm.signupModel.email)
                     .keyboardType(.emailAddress)
+                    .autocapitalization(.none)
                     .roundedTextBackground(cornerRadius: 12)
                 
                 Button("Signup"){

@@ -39,8 +39,6 @@ class SignupVM: ObservableObject {
             return
         }
         
-        users = [signupModel.mobileNumber: ["name": signupModel.name, "email": signupModel.email]]
-        
         let otpReq = SignupReqM(model: signupModel)
         onboardingServices.sendOtp(model: otpReq){ response, error in
             
@@ -132,11 +130,15 @@ class SignupVM: ObservableObject {
         if isSignup {
             self.signupModel.loginSuccess(statusCode: 200)
             self.signupModel.otpSuccess(statusCode: 200)
+            
+            users = [signupModel.mobileNumber: ["name": signupModel.name, "email": signupModel.email]]
+            print("User registered successfully: \(signupModel.mobileNumber)")
         } else {
             self.loginModel.loginSuccess(statusCode: 200)
             self.loginModel.otpSuccess(statusCode: 200)
         }
         
         print("OTP verified successfully")
+        self.otpCode = ""
     }
 }
