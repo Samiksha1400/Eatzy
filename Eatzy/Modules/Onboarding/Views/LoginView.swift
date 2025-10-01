@@ -32,6 +32,16 @@ struct LoginView: View {
             
             //Navigate to Login
             NavigationLink(destination: OtpView(vm: vm, isSignup: false),isActive: $vm.loginModel.isOtpVerified) { }
+            
+            HStack{
+                Spacer()
+                Text("Don't have an account?")
+                NavigationLink(destination: SignupView(vm: vm)){
+                    Text("Signup")
+                        .foregroundColor(.blue)
+                }
+                Spacer()
+            }
         }
         .padding(.horizontal)
     }
