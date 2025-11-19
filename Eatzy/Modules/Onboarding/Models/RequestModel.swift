@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SignupReqM: Codable {
+struct SignupRequestModel: Encodable {
     
     var mobileNumber: String?
     var name: String?

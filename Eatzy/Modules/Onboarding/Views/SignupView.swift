@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct SignupView: View {
-    @StateObject var vm = SignupVM()
+    
+    @StateObject var vm = AuthServices()
     
     var body: some View {
         NavigationStack{
@@ -34,7 +35,7 @@ struct SignupView: View {
                 
                 Text("Already have an account?")
                 
-                NavigationLink(destination: LoginView(vm: vm)){
+                NavigationLink(destination: LoginView().environmentObject(vm) ){
                     Text("Login")
                 }
                 
@@ -44,9 +45,27 @@ struct SignupView: View {
             }
             .padding(.horizontal)
         }
+        .alert(isPresented: $vm.signupModel.isSignUpProcessError, error: StringError(NSLocalizedString(vm.signupModel.error, comment: ""))) {
+            Button {
+                vm.signupModel.isSignUpProcessError.toggle()
+            } label: {
+                Text("Okay")
+            }
+
+        }
     }
 }
 
 #Preview {
     SignupView()
 }
+
+
+struct StringError: LocalizedError {
+    let errorDescription: String?
+    
+    init(_ description: String) {
+        self.errorDescription = description
+    }
+}
+

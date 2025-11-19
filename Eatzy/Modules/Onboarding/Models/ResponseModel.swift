@@ -7,12 +7,17 @@
 
 import SwiftUI
 
-struct SignupResM: Codable {
-    var statusCode: Int
-    var message: String
+struct SignupResponseModel: Decodable {
+    var statusCode: Int?
+    var message: String?
 }
 
-struct LoginResM: Codable {
-    var statusCode: Int
-    var message: String
+struct LoginResponseModel: Decodable {
+    var statusCode: Int?
+    var message: String?
+    
+    init(){
+        statusCode = nil
+        message = nil
+    }
 }

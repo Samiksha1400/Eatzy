@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct LoginView: View {
-    @ObservedObject var vm: SignupVM
+    
+    @EnvironmentObject var vm: AuthServices
     
     var body: some View {
         VStack( alignment: .leading ,spacing: 10){
@@ -25,10 +26,10 @@ struct LoginView: View {
                 .keyboardType(.emailAddress)
             
             //MARK: - Login Button
-            Button("Login"){
-                vm.login()
-            }
-            .roundedButtonBackground(cornerRadius: 12, background: .orange, foregroundColor: .white)
+//            Button("Login"){
+//                $vm.loginModel.isLoginFailed = false
+//            }
+//            .roundedButtonBackground(cornerRadius: 12, background: .orange, foregroundColor: .white)
             
             //Navigate to Login
             NavigationLink(destination: OtpView(vm: vm, isSignup: false),isActive: $vm.loginModel.isOtpVerified) { }
@@ -44,9 +45,18 @@ struct LoginView: View {
             }
         }
         .padding(.horizontal)
+        .alert(isPresented: $vm.loginModel.isLoginFailed, error: StringError(NSLocalizedString("User not found", comment: ""))) {
+            Button {
+                vm.loginModel.isLoginFailed.toggle()
+            } label: {
+                Text("Okay")
+            }
+
+        }
     }
 }
 
 #Preview {
-    LoginView(vm: SignupVM())
+    LoginView()
+        .environmentObject(AuthServices())
 }

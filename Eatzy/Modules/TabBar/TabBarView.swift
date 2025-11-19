@@ -8,11 +8,43 @@
 import SwiftUI
 
 struct TabBarView: View {
+    @Binding var selectedTab: Tab
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack{
+            
+            HStack{
+                Spacer()
+                Button(action: {
+                    selectedTab = .home
+                }){
+                    Image(systemName: "house")
+                        .foregroundColor(selectedTab == .home ? .blue : .gray)
+                }
+                
+                Spacer()
+                Button(action: {
+                    selectedTab = .cart
+                }){
+                    Image(systemName: "cart")
+                        .foregroundColor(selectedTab == .cart ? .blue : .gray)
+                }
+                
+                Spacer()
+                Button(action: {
+                    selectedTab = .profile
+                }){
+                    Image(systemName: "person.circle")
+                        .foregroundColor(selectedTab == .profile ? .blue : .gray)
+                }
+                Spacer()
+            }
+            .padding()
+            .background(.gray.opacity(0.2))
+            .cornerRadius(20)
+        }
     }
 }
 
 #Preview {
-    TabBarView()
+    TabBarView(selectedTab: .constant(.home))
 }

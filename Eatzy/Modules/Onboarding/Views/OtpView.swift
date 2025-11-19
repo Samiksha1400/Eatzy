@@ -8,33 +8,36 @@
 import SwiftUI
 
 struct OtpView: View {
-    @ObservedObject var vm: SignupVM
+    @ObservedObject var vm: AuthServices
     var isSignup: Bool
     
     var body: some View {
-        VStack(alignment: .leading,spacing: 10){
-            
-            Text("OTP verification")
-                .titleTextStyle()
-            
-            Text("We have sent an OTP to \(UtilityFunctions.maskNumber(vm.signupModel.mobileNumber))")
-                .subtitleTextStyle()
-            
-            TextField("Enter OTP", text: $vm.otpCode)
-                .roundedTextBackground(cornerRadius: 12)
-            
-            Button("Verify Otp"){
-                vm.verifyOTP(isSignup: isSignup)
+        NavigationView {
+            ScrollView {
+                VStack(alignment: .leading,spacing: 10){
+                    Text("We have sent an OTP to \(UtilityFunctions.maskNumber(vm.signupModel.mobileNumber))")
+                        .subtitleTextStyle()
+                    
+                    TextField("Enter OTP", text: $vm.otpCode)
+                        .roundedTextBackground(cornerRadius: 12)
+                    
+                    Button("Verify Otp"){
+                        vm.verifyOTP(isSignup: isSignup)
+                    }
+                    .roundedButtonBackground(cornerRadius: 12, background: .orange, foregroundColor: .white)
+                     
+                    NavigationLink(destination: HomepageView(),isActive: isSignup ? $vm.signupModel.isLoggedIn : $vm.loginModel.isLoggedIn) {}
+                    
+                }
             }
-            .roundedButtonBackground(cornerRadius: 12, background: .orange, foregroundColor: .white)
-            
-            NavigationLink(destination: HomepageView(),isActive: isSignup ? $vm.signupModel.isLoggedIn : $vm.loginModel.isLoggedIn) {}
-            
         }
-        .padding(.horizontal)
+        .navigationBarBackButtonHidden()
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationTitle("OTP verification")
+        .navigationBarTitleDisplayMode(.large)
     }
 }
 
 #Preview {
-    OtpView(vm: SignupVM(), isSignup: false)
+    OtpView(vm: AuthServices(), isSignup: false)
 }

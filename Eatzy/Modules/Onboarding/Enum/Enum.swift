@@ -7,4 +7,10 @@
 
 import SwiftUI
 
-
+enum Tab: String, CaseIterable {
+    
+    case home
+    case cart
+    case profile
+    
+}

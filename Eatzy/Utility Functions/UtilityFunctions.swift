@@ -6,11 +6,18 @@
 //
 
 import Foundation
+import SwiftUICore
 
 class UtilityFunctions {
     
+    static let shared = UtilityFunctions()
+    
+    private init(){
+        
+    }
+    
     //MARK: Encode Request
-    class func encodeRequest<T: Codable>(req: T) -> Data? {
+    class func encodeRequest<T: Encodable>(req: T) -> Data? {
         
         guard let encodedRequest = try? JSONEncoder().encode(req) else{
             return nil
@@ -19,7 +26,7 @@ class UtilityFunctions {
     }
     
     //MARK: - Decode Response
-    class func decodeResponse<T: Codable>(responseType: T.Type, data: Data) -> T? {
+    func decodeResponse<T: Decodable>(responseType: T.Type, data: Data) -> T? {
         
         guard let decodedResponse = try? JSONDecoder().decode(responseType.self, from: data)else{
             return nil
